@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'GE Dinar Two';
+    src: url('/fonts/GE Dinar Two Medium - [UrduFonts.com].otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GE Dinar Two';
+    src: url('/fonts/GE\ Dinar\ Two\ Light\ -\ [UrduFonts.com].otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: 'GE Dinar Two', sans-serif !important;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease-in-out !important;
+}
+
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.step-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+.step-box .relative>div:first-child {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #222574;
+}
+
+.step-box .relative .hidden {
+    width: 40px;
+    height: 40px;
+    background-color: #222574;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* الدائرة الصغيرة داخل المؤشر */
+.step-box .relative .hidden>div {
+    width: 24px;
+    height: 24px;
+    background-color: #5c6479;
+    border-radius: 50%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+    background-color: inherit !important;
+    border: 1px solid white !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    margin: 0 5px !important;
+    position: relative !important;
+    margin-left: 25px !important;
+    cursor: pointer !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 0.7rem !important;
+    color: white;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #eab308 !important;
+    border: 1px solid #eab308 !important;
+}
+
+.swiper-btn-tow {
+    border: 1px solid black !important;
+}
+
+.swiper-btn-tow::after {
+    color: black !important;
+}
+
+.swiper-btn-tow:hover {
+    background-color: #eab308 !important;
+    border: 1px solid white !important;
+}
+
+.swiper-btn-tow:hover::after {
+    color: white !important;
+}
+
+.swiper-btn-three {
+    border: 1px solid #eab308 !important;
+}
+
+.swiper-btn-three::after {
+    color: #eab308 !important;
+}
+
+.swiper-btn-three:hover {
+    background-color: #eab308 !important;
+    border: 1px solid white !important;
+}
+
+.swiper-btn-three:hover::after {
+    color: white !important;
+}
+
+@media (max-width: 768px) {
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 25px !important;
+        height: 25px !important;
+        margin-left: 20px !important;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 0.5rem !important;
+    }
+}
+
+
+.swiper-slide-active .swiper-image {
+    margin-top: 20px;
+    height: 400px;
+    /* زيادة ارتفاع الصورة للشريحة النشطة */
+    /* transition: height 0.3s ease-in-out; */
+}
+
+
+  /* تنسيق الشرائح النشطة */
+  .swiper-slide-active,
+  .swiper-slide-next {
+    transform: scale(1); /* تكبير الشرائح النشطة */
+    opacity: 1;
+  }
+  
+

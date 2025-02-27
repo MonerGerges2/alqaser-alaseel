@@ -1,0 +1,31 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "heroSlider": {
+    "title": "Promising Real Estate Investment",
+    "description": "Al-Jadah Al-Oula for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
+    "button": "Our Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Al-Jadah Al-Oula for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
+    "button": "Read More"
+  },
+  "footer": {
+    "relatedLinks": "Related Links",
+    "home": "Home",
+    "projects": "Projects",
+    "contactUs": "Contact Us",
+    "aboutUs": "About Us",
+    "mediaCenter": "Media Center",
+    "TermsConditions": "Investment Relations",
+    "contactInfo": "Contact Information",
+    "address": "Riyadh: Prince Turki Bin Abdulaziz Al Awwal Road - Hittin District, Building 6957 - Unit No. 3 - Postal Code: 2447-13512, Saudi Arabia",
+    "rightsReserved": "All rights reserved. Al-Jadah Al-Oula Real Estate Development Company"
+  }
+}
