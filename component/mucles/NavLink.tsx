@@ -1,0 +1,32 @@
+import { MdArrowOutward } from "react-icons/md";
+import { useTranslation } from "react-i18next";
+import Link from "next/link";
+import { useMediaQuery } from "@mantine/hooks";
+
+const NavLink = ({
+     text,
+     link = "#",
+     onClick
+}: {
+     text: string,
+     link: string
+     onClick?: () => void
+}) => {
+     const { i18n } = useTranslation();
+     const dir = i18n.dir();
+     const isMobile = useMediaQuery("(max-width: 1023px)");
+
+
+     return (
+          <Link href={link}
+               onClick={onClick}
+               className={`bg-inherit px-5 py-2 flex items-center group text-base ${isMobile ? "text-white" : "text-black"}`}
+          >
+               <MdArrowOutward className={`inline-block ml-2 transition-transform duration-300 group-hover:rotate-45 ${dir === "rtl" ? "block" : "hidden"}`} />
+               {text}
+               <MdArrowOutward className={`inline-block ml-2 transition-transform duration-300 group-hover:rotate-45 ${dir === "rtl" ? "hidden" : "block"}`} />
+          </Link>
+     );
+}
+
+export default NavLink;

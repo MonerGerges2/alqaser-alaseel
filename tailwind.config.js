@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./component/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cairo: ["Cairo", "Helvetica", "sans-serif"],
+        urbanist: ["Cairo", "Helvetica", "sans-serif"],
+        laxr: ["Cairo", "Helvetica", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
+};
