@@ -9,12 +9,14 @@ import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import NavLink from "../mucles/NavLink";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 1023px)");
   const [opened, setOpened] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -37,6 +39,25 @@ const Header = () => {
 
   const handleDropdownToggle = (index: any) => {
     setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    if (darkMode) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+    setDarkMode(!darkMode);
   };
 
   const navItems = [
@@ -63,30 +84,32 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white shadow-md backdrop-blur-xl" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? "bg-white dark:bg-black shadow-md backdrop-blur-xl" : "bg-transparent"
         }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Mobile Menu Toggle */}
         {isMobile && (
-          <Burger opened={opened} onClick={() => setOpened((o) => !o)} size="md" color="black" />
+          <Burger opened={opened} onClick={() => setOpened((o) => !o)} size="md" color={
+            localStorage.getItem("theme") === "dark" ? "white" : "black"
+          } />
         )}
 
         {/* Logo */}
-        <Link href="/" className="lg:w-44 w-36 lg:h-16 h-10 transition-all duration-300 ease-in-out ">
+        <Link href="/" className="lg:w-44 w-10 lg:h-16 h-10 transition-all duration-300 ease-in-out ">
           <Image src={scrolled ? logoScrolled : logo} alt="logo" className="object-contain w-full h-full" />
         </Link>
 
         {/* Desktop Navigation */}
         {!isMobile && (
-          <nav className="bg-white/50 backdrop-blur-2xl rounded-2xl px-6 py-2">
-            <div className="flex items-center text-black gap-4">
+          <nav className="bg-white/50 dark:bg-black/50 backdrop-blur-2xl rounded-2xl px-6 py-2">
+            <div className="flex items-center text-black dark:text-white gap-4">
               {navItems.map((item, index) =>
                 item.dropdown ? (
                   <div key={index} className="group">
                     <Menu trigger="hover" openDelay={100} closeDelay={200} position="bottom-start">
                       <Menu.Target>
-                        <button className="text-black flex items-center px-5 py-2 gap-1">
+                        <button className="text-black dark:text-white flex items-center px-5 py-2 gap-1">
                           {item.text}
                           <MdArrowOutward className="ml-1 transition-transform duration-300 group-hover:rotate-[135deg]" />
                         </button>
@@ -122,6 +145,13 @@ const Header = () => {
               <button className="flex items-center gap-1 text-mainColor" onClick={toggleLanguage}>
                 <p>{i18n.language === "ar" ? "EN" : "AR"}</p>
                 <FaGlobe className="text-xl" />
+              </button>
+
+              <button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-full transition duration-300"
+              >
+                {darkMode ? <FaSun className="text-yellow-500" size={20} /> : <FaMoon className="text-gray-900" size={20} />}
               </button>
             </div>
           </nav>
@@ -164,10 +194,18 @@ const Header = () => {
                     <NavLink key={index} text={item.text} link={item.link} onClick={() => setOpened(false)} />
                   )
                 )}
-                <button className="flex items-center justify-center gap-1 text-mainColor font-bold" onClick={toggleLanguage}>
-                  <p>{i18n.language === "ar" ? "EN" : "AR"}</p>
-                  <FaGlobe className="text-2xl" />
-                </button>
+                <div className="flex items-center justify-center">
+                  <button className="flex items-center justify-center gap-1 text-mainColor font-bold" onClick={toggleLanguage}>
+                    <p>{i18n.language === "ar" ? "EN" : "AR"}</p>
+                    <FaGlobe className="text-2xl" />
+                  </button>
+                  <button
+                    onClick={toggleDarkMode}
+                    className="p-2 rounded-full transition duration-300"
+                  >
+                    {darkMode ? <FaSun className="text-yellow-500" size={20} /> : <FaMoon className="text-gray-900" size={20} />}
+                  </button>
+                </div>
               </nav>
             </Paper>
           )}

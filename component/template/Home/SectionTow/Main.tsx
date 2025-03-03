@@ -14,7 +14,7 @@ const AboutSection = () => {
      }, []);
 
      return (
-          <section className="relative bg-white text-black py-24">
+          <section className="relative bg-white dark:bg-black text-black dark:text-white py-24">
                <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                          {/* الصورة */}
@@ -24,7 +24,7 @@ const AboutSection = () => {
                                    alt="Construction site"
                                    className="w-full rounded-3xl shadow-xl border-4 border-gold"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-3xl"></div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 dark:text-white/50 to-transparent rounded-3xl"></div>
                          </div>
                          {/* النصوص */}
                          <div data-aos="fade-right">

@@ -13,7 +13,7 @@ const NumbersSection = () => {
      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
      return (
-          <section ref={ref} className="bg-slate-200/50 text-black py-16">
+          <section ref={ref} className="bg-slate-200/50 dark:bg-[#111010] text-black dark:text-white py-16">
                <div className="container mx-auto text-center">
                     <h2 className="text-4xl font-bold text-gold mb-8">أرقامنا تتحدث</h2>
                     <p className="text-gray-500 max-w-2xl mx-auto mb-12 text-lg">

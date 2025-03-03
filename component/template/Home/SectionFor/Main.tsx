@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const VisionSection = () => {
      return (
-          <section className="text-black py-16 min-h-[80vh] flex items-center">
+          <section className="text-black dark:text-white bg-white dark:bg-black py-16 min-h-[80vh] flex items-center">
                <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 lg:px-20">
 
                     <div className="relative w-full lg:w-1/2 flex justify-center my-10 md:my-0">
@@ -19,7 +19,7 @@ const VisionSection = () => {
 
                     <div className="w-full lg:w-2/3 flex flex-col items-start lg:pl-16 text-center lg:text-right mt-10 lg:mt-0">
                          <h2 className="md:text-4xl text-xl font-bold text-gold mb-6">رؤيتنا</h2>
-                         <p className="text-gray-600 md:text-lg text-sm mb-6 text-start">
+                         <p className="text-gray-600 dark:text-gray-400 md:text-lg text-sm mb-6 text-start">
                               نطمح إلى أن نكون روادًا في مجال البناء والتطوير العقاري، من خلال تقديم حلول مبتكرة تجمع بين الجودة، التصميم العصري، والاستدامة البيئية. رؤيتنا تتمحور حول بناء مستقبل أكثر حداثة، باستخدام التكنولوجيا المتقدمة والمواد الصديقة للبيئة لضمان الاستدامة والكفاءة في جميع مشاريعنا.
                          </p>
                          <ul className="space-y-4 px-4">
@@ -31,7 +31,7 @@ const VisionSection = () => {
                                    "نستخدم مواد صديقة للبيئة ونلتزم بالمعايير الدولية للحفاظ على موارد الطبيعة.",
                                    "نحرص على تنفيذ مشاريعنا وفق أعلى معايير الجودة لضمان المتانة والكفاءة.",
                               ].map((point, index) => (
-                                   <li key={index} className="flex items-center text-lg gap-4 text-gray-700">
+                                   <li key={index} className="flex items-center text-lg gap-4 text-gray-700 dark:text-gray-500">
                                         <FaCheckCircle className="text-yellow-500 md:text-xl text-sm mr-3" />
                                         {point}
                                    </li>

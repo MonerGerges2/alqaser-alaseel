@@ -35,21 +35,21 @@ const FAQAccordion = () => {
      }, []);
 
      return (
-          <div className="relative pb-20 overflow-x-hidden px-5" style={{ direction: 'rtl' }}>
+          <div className="relative pb-20 overflow-x-hidden px-5 bg-white dark:bg-black text-black dark:text-white" style={{ direction: 'rtl' }}>
                <div className='container mx-auto'>
                     <div className="flex flex-col items-center mb-5 mt-10" data-aos="fade-up">
-                         <h2 className="text-lg lg:text-2xl font-bold text-black">أسئلة عنا</h2>
-                         <h3 className="text-2xl md:text-5xl font-bold text-[#0f1a1c] mt-2 max-w-xl">
+                         <h2 className="text-lg lg:text-2xl font-bold text-black dark:text-white">أسئلة عنا</h2>
+                         <h3 className="text-2xl md:text-5xl font-bold text-[#0f1a1c] dark:text-gray-200 mt-2 max-w-xl">
                               الأسئلة الشائعة
                          </h3>
-                         <h4 className="lg:text-lg text-sm text-center text-[#5C6479] mt-2">
+                         <h4 className="lg:text-lg text-sm text-center text-[#5C6479] dark:text-gray-200 mt-2">
                               تعرف على المزيد عن القصر الاصيل وخدماتنا.
                          </h4>
                     </div>
                     <Accordion variant="separated">
                          {faqData.map((item, index) => (
-                              <Accordion.Item key={index} value={`question${index}`} className="py-2" data-aos="fade-up">
-                                   <Accordion.Control className="text-right text-lg md:text-2xl">
+                              <Accordion.Item key={index} value={`question${index}`} className="py-2 dark:bg-[#111010] dark:text-white" data-aos="fade-up">
+                                   <Accordion.Control className="text-right text-lg md:text-2xl dark:text-white">
                                         {item.question}
                                    </Accordion.Control>
                                    <Accordion.Panel>

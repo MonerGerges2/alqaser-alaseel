@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const SectionSevien = () => {
      return (
-          <section className="py-16 bg-gradient-to-r text-black flex items-center justify-center !rounded-t-2xl">
+          <section className="py-16 bg-white dark:bg-black text-black dark:text-white flex items-center justify-center !rounded-t-2xl">
                <div className="container mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold mb-4">هل لديك استفسار؟</h2>
                     <p className="text-lg mb-8">

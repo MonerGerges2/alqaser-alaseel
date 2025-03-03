@@ -20,7 +20,7 @@ const NavLink = ({
      return (
           <Link href={link}
                onClick={onClick}
-               className={`bg-inherit px-5 py-2 flex items-center group text-base ${isMobile ? "text-white" : "text-black"}`}
+               className={`bg-inherit px-5 py-2 flex items-center group text-base ${isMobile ? "text-white" : "text-black dark:text-white"}`}
           >
                <MdArrowOutward className={`inline-block ml-2 transition-transform duration-300 group-hover:rotate-45 ${dir === "rtl" ? "block" : "hidden"}`} />
                {text}

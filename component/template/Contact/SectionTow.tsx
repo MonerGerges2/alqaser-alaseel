@@ -3,10 +3,10 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const SectionTow = () => {
      return (
-          <section className="py-16 bg-gray-100">
+          <section className="py-16 bg-gray-100 dark:bg-[#111010]">
                <div className="container mx-auto px-4">
                     <div className="grid gap-8 md:grid-cols-3">
-                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white">
+                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white dark:bg-black text-black dark:text-white">
                               <div className="flex items-center">
                                    <FaPhone className="text-blue-500 text-2xl mx-4" />
                                    <div>
@@ -15,7 +15,7 @@ const SectionTow = () => {
                                    </div>
                               </div>
                          </Card>
-                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white">
+                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white dark:bg-black text-black dark:text-white">
                               <div className="flex items-center">
                                    <FaEnvelope className="text-green-500 text-2xl mx-4" />
                                    <div>
@@ -24,7 +24,7 @@ const SectionTow = () => {
                                    </div>
                               </div>
                          </Card>
-                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white">
+                         <Card shadow="sm" p="lg" radius="md" withBorder className="bg-white dark:bg-black text-black dark:text-white">
                               <div className="flex items-center">
                                    <FaMapMarkerAlt className="text-red-500 text-2xl mx-4" />
                                    <div>

@@ -75,7 +75,7 @@ const SectionTow = () => {
      );
 
      return (
-          <section className="bg-gradient-to-r text-black pb-10 mt-10">
+          <section className="bg-gradient-to-r text-black dark:bg-black bg-white dark:text-white pb-10 pt-10">
                <div className="container mx-auto px-4">
                     {/* Search Input */}
                     <div className="mb-8">
@@ -105,7 +105,7 @@ const SectionTow = () => {
                          {filteredArticles.map((article) => (
                               <div
                                    key={article.id}
-                                   className="bg-white shadow-lg overflow-hidden group cursor-pointer border-2 rounded-2xl"
+                                   className="bg-white dark:bg-[#111010] shadow-lg overflow-hidden group cursor-pointer border-2 rounded-2xl"
                               >
                                    <div className="w-full h-60 overflow-hidden !rounded-t-2xl">
                                         <Image

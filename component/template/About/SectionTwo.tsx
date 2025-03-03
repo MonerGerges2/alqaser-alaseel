@@ -15,7 +15,7 @@ const images = [
 
 const SectionTwo = () => {
      return (
-          <section className="py-16 bg-gray-100">
+          <section className="py-16 bg-gray-100 dark:bg-[#111010] text-black dark:text-white">
                <div className="container mx-auto px-4 flex flex-col lg:flex-row">
                     {/* عمود معلومات الشركة */}
                     <div className="w-full lg:w-1/2 mb-8 lg:mb-0 px-10">

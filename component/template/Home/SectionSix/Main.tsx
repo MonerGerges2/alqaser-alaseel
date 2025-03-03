@@ -31,7 +31,7 @@ const articles = [
 
 const ArticlesSection = () => {
      return (
-          <section className="py-16">
+          <section className="py-16 bg-slate-200/50 dark:bg-[#111010] text-black dark:text-white">
                <div className="container mx-auto">
                     <SwiperComponent
                          phoneSlides={1}
