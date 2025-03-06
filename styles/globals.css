@@ -4,8 +4,8 @@
 
 /* add google font */
 @font-face {
-  font-family: 'cairo';
-  src: url('/Fonts/Cairo-VariableFont_slnt\,wght.ttf') format('truetype');
+  font-family: 'Cairo';
+  src: url('/Fonts/Cairo-VariableFont.ttf') format('truetype');
   font-style: normal;
 }
 
