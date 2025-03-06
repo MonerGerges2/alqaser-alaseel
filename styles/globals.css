@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 /* add google font */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+@font-face {
+  font-family: 'cairo';
+  src: url('/Fonts/Cairo-VariableFont_slnt\,wght.ttf') format('truetype');
+  font-style: normal;
+}
 
 body {
-  font-family: "Cairo", sans-serif;
-  overflow-x: hidden !important;
+  font-family: 'cairo', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s !important;
 }
 
 html {

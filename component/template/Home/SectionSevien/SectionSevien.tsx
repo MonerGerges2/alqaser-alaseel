@@ -11,8 +11,7 @@ const SectionSevien = () => {
                     <p className="text-lg mb-8">{t("question_description")}</p>
                     <Link
                          href="/contact"
-                         className="inline-block bg-white text-yellow-500 font-semibold px-6 py-3 border border-yellow-500 rounded-full shadow-md hover:bg-yellow-500 hover:text-white transition duration-300"
-                    >
+                         className="bg-yellow-500 text-black hover:bg-yellow-600 px-10 py-3 text-xl font-bold rounded-lg group gap-4 shadow-lg transition-all duration-300 inline-block"                    >
                          {t("contact_us_now")}
                     </Link>
                </div>

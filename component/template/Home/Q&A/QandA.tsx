@@ -34,7 +34,7 @@ const FAQAccordion = () => {
                     </div>
                     <Accordion variant="separated">
                          {faqData?.map((item, index) => (
-                              <Accordion.Item key={index} value={`question${index}`} className="py-2 dark:bg-[#111010] dark:text-white" data-aos="fade-up">
+                              <Accordion.Item key={index} value={`question${index}`} className="py-2 dark:bg-[#111010] dark:text-white rounded-lg" data-aos="fade-up">
                                    <Accordion.Control className="text-right text-lg md:text-2xl dark:text-white">
                                         {item.question}
                                    </Accordion.Control>

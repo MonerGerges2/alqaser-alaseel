@@ -5,8 +5,8 @@ import { FaCalendarAlt } from "react-icons/fa";
 const ArticleCard = ({ article }: { article: any }) => {
      return (
           <Link href={`/project-details/${article.id}`} passHref>
-          <div className="bg-white dark:bg-black shadow-lg !rounded-2xl transition-transform transform cursor-pointer w-[90%] mx-auto border group">
-               <div className="w-full h-60 overflow-hidden !rounded-t-2xl">
+          <div className="bg-white dark:bg-black shadow-lg !rounded-lg transition-transform transform cursor-pointer w-[90%] mx-auto border dark:border-none group">
+               <div className="w-full h-60 overflow-hidden !rounded-t-lg">
                     <Image src={article.image} alt={article.title} className="w-full h-60 object-cover group-hover:scale-110 duration-500" />
                </div>
                <div className="p-5 text-center">

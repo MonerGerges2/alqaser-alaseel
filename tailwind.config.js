@@ -7,13 +7,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        cairo: ["Cairo", "Helvetica", "sans-serif"],
-        urbanist: ["Cairo", "Helvetica", "sans-serif"],
-        laxr: ["Cairo", "Helvetica", "sans-serif"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

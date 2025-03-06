@@ -50,7 +50,7 @@ const ContactForm = () => {
      };
 
      return (
-          <div className="dark:bg-black dark:text-white">
+          <div className="dark:bg-[#111010] dark:text-white">
                <div className="container mx-auto p-6">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                          {() => (
@@ -66,7 +66,7 @@ const ContactForm = () => {
                                                   id="first_name"
                                                   name="first_name"
                                                   placeholder={t("contactForm.placeholders.firstName")}
-                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-lg dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
                                              <ErrorMessage name="first_name" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
@@ -80,7 +80,7 @@ const ContactForm = () => {
                                                   id="last_name"
                                                   name="last_name"
                                                   placeholder={t("contactForm.placeholders.lastName")}
-                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-lg dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
                                              <ErrorMessage name="last_name" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
@@ -95,7 +95,7 @@ const ContactForm = () => {
                                                   id="email"
                                                   name="email"
                                                   placeholder={t("contactForm.placeholders.email")}
-                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-lg dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
                                              <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
@@ -110,7 +110,7 @@ const ContactForm = () => {
                                                   id="phone"
                                                   name="phone"
                                                   placeholder={t("contactForm.placeholders.phone")}
-                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-lg dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
                                              <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
@@ -126,7 +126,7 @@ const ContactForm = () => {
                                                   name="message"
                                                   placeholder={t("contactForm.placeholders.message")}
                                                   rows="8"
-                                                  className="w-full px-3 py-2 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
+                                                  className="w-full px-3 py-2 border border-gray-600 rounded-lg dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
                                              <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>

@@ -17,7 +17,7 @@ const SectionOne = () => {
                {/* Content container */}
                <div className="relative container mx-auto flex flex-col justify-center px-4 mt-10 h-full z-10">
                     {/* Breadcrumb */}
-                    <nav className="text-sm mb-4">
+                    <nav className="text-base mb-4">
                          <span>{t("blog.breadcrumb.blog")}</span>
                          <span className="mx-2 text-black">/</span>
                          <Link href="/" className="text-black hover:underline">

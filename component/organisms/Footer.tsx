@@ -7,11 +7,12 @@ import Link from "next/link";
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
-  
+  const dir = i18n.dir();
+
   return (
     <footer className="bg-black text-white pt-10">
       <div className="container mx-auto px-6 lg:px-20">
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 text-center ${dir === "rtl" ? "md:text-right" : "md:text-left"}`}>
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
             <Image src={logo} alt="logo" className="h-40 w-auto object-contain" />
@@ -67,7 +68,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* الحقوق محفوظة */}
       <div className="text-center text-sm text-gray-500 py-3 mt-5">
         {t("footer.rightsReserved")} {new Date().getFullYear()}
       </div>

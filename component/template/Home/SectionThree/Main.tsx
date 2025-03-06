@@ -55,7 +55,7 @@ const ServicesSection = () => {
                               {services.map((service) => (
                                    <SwiperSlide key={service.id} className="swiper-slide-custom">
                                         <Link href={`/service-details/${service.id}`} dir={dir()}>
-                                             <div className="relative bg-white/80 dark:bg-black dark:hover:bg-yellow-500 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:bg-yellow-500 hover:text-white hover:border-yellow-600 hover:shadow-xl duration-300">
+                                             <div className="relative bg-white/80 dark:bg-black dark:hover:bg-yellow-500 backdrop-blur-lg border border-white/20 dark:border-black p-6 rounded-lg transform hover:bg-yellow-500 hover:text-white hover:border-yellow-600 hover:shadow-xl duration-300 h-[200px]">
                                                   <div className="flex justify-center items-center bg-black/90 dark:bg-white/90 text-yellow-500 w-10 h-10 rounded-full shadow-lg mb-4 transition-colors hover:bg-white hover:text-yellow-500">
                                                        {service.icon}
                                                   </div>

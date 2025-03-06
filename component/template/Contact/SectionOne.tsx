@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 const SectionOne = () => {
-     const { t } = useTranslation(); // استخدام الترجمة
+     const { t } = useTranslation();
 
      return (
           <section className="relative h-[50vh] overflow-hidden">
@@ -17,7 +17,7 @@ const SectionOne = () => {
                {/* Content container */}
                <div className="relative container mx-auto flex flex-col justify-center px-4 mt-10 h-full z-10">
                     {/* Breadcrumb */}
-                    <nav className="text-sm mb-4">
+                    <nav className="text-base mb-4">
                          <Link href="/" className="text-black hover:underline">
                               {t("contact.breadcrumb.home")}
                          </Link>

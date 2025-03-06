@@ -7,7 +7,9 @@ import { IoSearch } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 
 const SectionTow = () => {
-     const { t } = useTranslation();
+     const { t, i18n } = useTranslation();
+     const dir = i18n.dir();
+
      const articles = [
           {
                id: 1,
@@ -78,17 +80,16 @@ const SectionTow = () => {
 
      return (
           <section className="bg-gradient-to-r text-black dark:bg-black bg-white dark:text-white pb-10 pt-10">
-               <div className="container mx-auto px-4">
+               <div className="container mx-auto px-4" dir={dir === "rtl" ? "ltr" : "rtl"}>
                     {/* Search Input */}
                     <div className="mb-8">
                          <Input
                               placeholder={t("searchPlaceholder")}
                               value={query}
                               onChange={(event) => setQuery(event.currentTarget.value)}
-                              radius={30}
-                              size="lg"
+                              radius={8}
                               icon={<IoSearch />}
-                              className="md:w-1/4"
+                              className="md:w-1/4 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600"
                               styles={{
                                    input: {
                                         '&:hover': {
@@ -98,18 +99,31 @@ const SectionTow = () => {
                                              borderColor: '#F59E0B',
                                              boxShadow: '0 0 0 2px rgba(245, 158, 11, 0.5)',
                                         },
+                                        '.dark &': {
+                                             backgroundColor: '#111010', // Tailwind's dark mode gray-800
+                                             color: '#FFFFFF', // White text in dark mode
+                                             borderColor: '#374151', // Tailwind's dark mode gray-600
+                                        },
+                                        '.dark &:hover': {
+                                             borderColor: '#F59E0B',
+                                        },
+                                        '.dark &:focus': {
+                                             borderColor: '#F59E0B',
+                                             boxShadow: '0 0 0 2px rgba(245, 158, 11, 0.5)',
+                                        },
                                    },
                               }}
                          />
                     </div>
+
                     {/* Articles Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                          {filteredArticles.map((article) => (
                               <div
                                    key={article.id}
-                                   className="bg-white dark:bg-[#111010] shadow-lg overflow-hidden group cursor-pointer border-2 rounded-2xl"
+                                   className="bg-white dark:bg-[#111010] shadow-lg overflow-hidden group cursor-pointer rounded-lg"
                               >
-                                   <div className="w-full h-60 overflow-hidden !rounded-t-2xl">
+                                   <div className="w-full h-60 overflow-hidden !rounded-t-lg">
                                         <Image
                                              src={article.image}
                                              alt={article.title}
@@ -126,12 +140,13 @@ const SectionTow = () => {
                               </div>
                          ))}
                     </div>
+
                     {/* Pagination */}
                     <Pagination
                          total={10}
                          variant="dots"
                          className="mt-10"
-                         dir="ltr"
+                         dir={"ltr"}
                          styles={{
                               control: {
                                    "&:hover": {

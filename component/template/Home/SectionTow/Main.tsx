@@ -22,9 +22,9 @@ const AboutSection = () => {
                               <Image
                                    src={aboutImage}
                                    alt="Construction site"
-                                   className="w-full rounded-3xl shadow-xl border-4 border-gold"
+                                   className="w-full rounded-lg shadow-xl border-4 border-gold"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 dark:text-white/50 to-transparent rounded-3xl"></div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 dark:text-white/50 to-transparent rounded-lg"></div>
                          </div>
                          {/* النصوص */}
                          <div data-aos="fade-right">
