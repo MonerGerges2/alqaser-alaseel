@@ -6,18 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
+  
   return (
     <footer className="bg-black text-white pt-10">
       <div className="container mx-auto px-6 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right`}>
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
             <Image src={logo} alt="logo" className="h-40 w-auto object-contain" />
           </div>
 
-          {/* روابط ذات صلة */}
           <div>
             <h3 className="text-lg font-semibold mb-3 text-gold">{t("footer.relatedLinks")}</h3>
             <ul className="text-sm space-y-2">
@@ -29,12 +28,12 @@ const Footer = () => {
               ].map((item, index) => (
                 <li key={index} className="group transition duration-300 hover:text-gold">
                   {item.to.startsWith("/") ? (
-                    <Link href={item.to} className="flex items-center justify-center gap-2 md:justify-start">
+                    <Link href={item.to} className="flex items-center justify-center gap-2 md:justify-start hover:text-yellow-500">
                       {item.label}
                       <GoArrowUpLeft className="ml-2 text-sm transition-transform duration-300 group-hover:-rotate-45" />
                     </Link>
                   ) : (
-                    <Link href={item.to} className="flex items-center justify-center gap-2 md:justify-start">
+                    <Link href={item.to} className="flex items-center justify-center gap-2 md:justify-start hover:text-yellow-500">
                       {item.label}
                       <GoArrowUpLeft className="ml-2 text-sm transition-transform duration-300 group-hover:-rotate-45" />
                     </Link>
@@ -54,10 +53,10 @@ const Footer = () => {
             </a>
             <div className="flex justify-center md:justify-start gap-4 mt-4">
               {[
-                { href: "#", icon: <FaFacebookF />, color: "hover:text-blue-500" },
-                { href: "#", icon: <FaTwitter />, color: "hover:text-blue-400" },
-                { href: "#", icon: <FaInstagram />, color: "hover:text-pink-500" },
-                { href: "#", icon: <FaLinkedinIn />, color: "hover:text-blue-600" },
+                { href: "#", icon: <FaFacebookF />, color: "hover:text-yellow-500" },
+                { href: "#", icon: <FaTwitter />, color: "hover:text-yellow-500" },
+                { href: "#", icon: <FaInstagram />, color: "hover:text-yellow-500" },
+                { href: "#", icon: <FaLinkedinIn />, color: "hover:text-yellow-500" },
               ].map((social, index) => (
                 <a key={index} href={social.href} className={`text-gray-400 text-lg transition duration-300 ${social.color}`}>
                   {social.icon}

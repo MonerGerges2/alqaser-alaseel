@@ -1,23 +1,25 @@
 import { FaBuilding, FaUsers, FaProjectDiagram, FaAward } from "react-icons/fa";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-
-const stats = [
-     { id: 1, icon: <FaBuilding className="text-yellow-500 text-5xl" />, value: 150, label: "مشروع مكتمل" },
-     { id: 2, icon: <FaUsers className="text-yellow-500 text-5xl" />, value: 300, label: "عميل سعيد" },
-     { id: 3, icon: <FaProjectDiagram className="text-yellow-500 text-5xl" />, value: 50, label: "مشروع قيد التنفيذ" },
-     { id: 4, icon: <FaAward className="text-yellow-500 text-5xl" />, value: 20, label: "جائزة وشهادة" },
-];
+import { useTranslation } from "react-i18next";
 
 const NumbersSection = () => {
+     const { t } = useTranslation();
      const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
+
+     const stats = [
+          { id: 1, icon: <FaBuilding className="text-yellow-500 text-5xl" />, value: 150, label: t("stats.completed_projects") },
+          { id: 2, icon: <FaUsers className="text-yellow-500 text-5xl" />, value: 300, label: t("stats.happy_clients") },
+          { id: 3, icon: <FaProjectDiagram className="text-yellow-500 text-5xl" />, value: 50, label: t("stats.ongoing_projects") },
+          { id: 4, icon: <FaAward className="text-yellow-500 text-5xl" />, value: 20, label: t("stats.awards_certifications") },
+     ];
 
      return (
           <section ref={ref} className="bg-slate-200/50 dark:bg-[#111010] text-black dark:text-white py-16">
                <div className="container mx-auto text-center">
-                    <h2 className="text-4xl font-bold text-gold mb-8">أرقامنا تتحدث</h2>
+                    <h2 className="text-4xl font-bold text-gold mb-8">{t("our_numbers")}</h2>
                     <p className="text-gray-500 max-w-2xl mx-auto mb-12 text-lg">
-                         نجاحنا يُقاس بمدى رضا عملائنا، وجودة مشاريعنا، وتأثيرنا الإيجابي في عالم البناء.
+                         {t("numbers_description")}
                     </p>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

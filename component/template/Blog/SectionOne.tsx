@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const SectionOne = () => {
+     const { t } = useTranslation();
+
      return (
           <section className="relative h-[50vh] overflow-hidden">
                {/* Blurred background image */}
@@ -15,17 +18,17 @@ const SectionOne = () => {
                <div className="relative container mx-auto flex flex-col justify-center px-4 mt-10 h-full z-10">
                     {/* Breadcrumb */}
                     <nav className="text-sm mb-4">
-                         <span>المدونة</span>
+                         <span>{t("blog.breadcrumb.blog")}</span>
                          <span className="mx-2 text-black">/</span>
-                         <Link href="/" className="text-black hover:underline">الرئيسية</Link>
+                         <Link href="/" className="text-black hover:underline">
+                              {t("blog.breadcrumb.home")}
+                         </Link>
                     </nav>
 
                     {/* العنوان الرئيسي */}
                     <div className="text-center">
-                         <h1 className="text-5xl font-extrabold mb-4">المدونة</h1>
-                         <p className="text-xl mb-6">
-                              اكتشفوا أحدث المقالات والنصائح في عالم البناء والصيانة مع مقالاتنا المتنوعة التي تقدم لكم كل جديد ومفيد.
-                         </p>
+                         <h1 className="text-5xl font-extrabold mb-4 text-yellow-500">{t("blog.title")}</h1>
+                         <p className="text-xl mb-6">{t("blog.description")}</p>
                     </div>
                </div>
           </section>

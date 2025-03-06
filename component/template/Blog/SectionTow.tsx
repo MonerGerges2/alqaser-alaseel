@@ -4,8 +4,10 @@ import vision from "/public/assets/vision.jpg";
 import vision2 from "/public/assets/vision2.jpg";
 import { Input, Pagination } from "@mantine/core";
 import { IoSearch } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const SectionTow = () => {
+     const { t } = useTranslation();
      const articles = [
           {
                id: 1,
@@ -80,7 +82,7 @@ const SectionTow = () => {
                     {/* Search Input */}
                     <div className="mb-8">
                          <Input
-                              placeholder="ابحث عن مقال..."
+                              placeholder={t("searchPlaceholder")}
                               value={query}
                               onChange={(event) => setQuery(event.currentTarget.value)}
                               radius={30}

@@ -2,39 +2,36 @@ import SwiperComponent2 from "@/component/mucles/swiperComponent2";
 import Link from "next/link";
 import { FaTools, FaPaintRoller, FaHardHat, FaHammer } from "react-icons/fa";
 import { SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
 
 const ServicesSection = () => {
+     const { t, i18n } = useTranslation();
+     const { dir } = i18n;
      const services = [
           {
                id: 1,
                icon: <FaTools className="text-gold text-xl" />,
-               title: "تجديد المباني",
-               description: "تحويل المساحات القديمة إلى بيئات حديثة، وظيفية، وجذابة.",
+               title: t("services_list.renovation.title"),
+               description: t("services_list.renovation.description")
           },
           {
                id: 2,
                icon: <FaPaintRoller className="text-gold text-xl" />,
-               title: "التشطيبات الداخلية",
-               description: "تنفيذ تشطيبات عالية الجودة لتعزيز الجمال والراحة.",
+               title: t("services_list.finishes.title"),
+               description: t("services_list.finishes.description")
           },
           {
                id: 3,
                icon: <FaHardHat className="text-gold text-xl" />,
-               title: "حلول الأسقف",
-               description: "توفير أنظمة أسقف متينة ومبتكرة للحماية والجودة.",
+               title: t("services_list.ceilings.title"),
+               description: t("services_list.ceilings.description")
           },
           {
                id: 4,
                icon: <FaHammer className="text-gold text-xl" />,
-               title: "إصلاح الأساسات",
-               description: "تحسين قوة واستقرار الهياكل عبر حلول احترافية.",
-          },
-          {
-               id: 5,
-               icon: <FaHammer className="text-gold text-xl" />,
-               title: "إصلاح الأساسات",
-               description: "تحسين قوة واستقرار الهياكل عبر حلول احترافية.",
-          },
+               title: t("services_list.foundation.title"),
+               description: t("services_list.foundation.description")
+          }
      ];
 
      return (
@@ -45,9 +42,9 @@ const ServicesSection = () => {
                          Slides={3}
                          title={
                               <div>
-                                   <h2 className="lg:text-4xl text-xl font-bold text-gold mb-5">خدماتنا</h2>
+                                   <h2 className="lg:text-4xl text-xl font-bold text-gold mb-5">{t("services")}</h2>
                                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:text-lg text-xs">
-                                        نقدم حلول بناء متكاملة تتناسب مع احتياجاتك، مع ضمان الجودة والابتكار في كل مشروع.
+                                        {t("services_description")}
                                    </p>
                               </div>
                          }
@@ -55,26 +52,22 @@ const ServicesSection = () => {
                          delay={3000}
                     >
                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-6">
-                              {services.map((service, index) => (
-                                   <SwiperSlide key={service?.id} className="swiper-slide-custom">
-                                        <Link href={`/service-details/${service?.id}`}>
-                                             <div
-                                                  key={index}
-                                                  className="relative bg-white/80 dark:bg-black backdrop-blur-lg border border-white/20 p-6 rounded-2xl transition-all duration-300 transform hover:border-yellow-500 hover:shadow-xl"
-                                             >
-                                                  <div className="flex justify-center items-center bg-black/90 dark:bg-white/90 text-yellow-500 w-10 h-10 rounded-full shadow-lg mb-4">
+                              {services.map((service) => (
+                                   <SwiperSlide key={service.id} className="swiper-slide-custom">
+                                        <Link href={`/service-details/${service.id}`} dir={dir()}>
+                                             <div className="relative bg-white/80 dark:bg-black dark:hover:bg-yellow-500 backdrop-blur-lg border border-white/20 p-6 rounded-2xl transform hover:bg-yellow-500 hover:text-white hover:border-yellow-600 hover:shadow-xl duration-300">
+                                                  <div className="flex justify-center items-center bg-black/90 dark:bg-white/90 text-yellow-500 w-10 h-10 rounded-full shadow-lg mb-4 transition-colors hover:bg-white hover:text-yellow-500">
                                                        {service.icon}
                                                   </div>
-                                                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-200 mb-3 transition-colors duration-300 hover:text-yellow-500">
+                                                  <h3 className="text-2xl font-semibold mb-3">
                                                        {service.title}
                                                   </h3>
-                                                  <p className="text-gray-700 dark:text-gray-400 transition-colors duration-300 hover:text-yellow-500">
+                                                  <p className="">
                                                        {service.description}
                                                   </p>
                                              </div>
                                         </Link>
                                    </SwiperSlide>
-
                               ))}
                          </div>
                     </SwiperComponent2>

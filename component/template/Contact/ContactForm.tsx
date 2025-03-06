@@ -3,10 +3,15 @@ import showNotification from "@/utils/notify";
 import { Button } from "@mantine/core";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useState } from "react";
+import { GoArrowUpRight } from "react-icons/go";
+import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 
 const ContactForm = () => {
      const [isLoading, setIsLoading] = useState(false);
+     const { t, i18n } = useTranslation();
+     const dir = i18n.dir();
+
      // Define initial form values
      const initialValues = {
           first_name: "",
@@ -18,41 +23,27 @@ const ContactForm = () => {
 
      // Create a validation schema using Yup
      const validationSchema = Yup.object({
-          first_name: Yup.string().required("الاسم الاول مطلوب"),
-          last_name: Yup.string().required("الاسم الاخير مطلوب"),
-          email: Yup.string().email("البريد الالكتروني غير صحيح").required("البريد الالكتروني مطلوب"),
-          phone: Yup.string().required("رقم الجوال مطلوب"),
-          message: Yup.string().required("الرسالة مطلوبة"),
+          first_name: Yup.string().required(t("contactForm.validation.firstNameRequired")),
+          last_name: Yup.string().required(t("contactForm.validation.lastNameRequired")),
+          email: Yup.string().email(t("contactForm.validation.emailInvalid")).required(t("contactForm.validation.emailRequired")),
+          phone: Yup.string().required(t("contactForm.validation.phoneRequired")),
+          message: Yup.string().required(t("contactForm.validation.messageRequired")),
      });
 
      const { mutate } = useMutate({
           endpoint: "user/contacts",
           mutationKey: ["user/contacts"],
           onSuccess: () => {
-               showNotification("تم ارسال الرسالة بنجاح", "success");
+               showNotification(t("contactForm.successMessage"), "success");
                setIsLoading(false);
           },
           onError: () => {
-               showNotification("حدث خطأ أثناء ارسال الرسالة", "error");
+               showNotification(t("contactForm.errorMessage"), "error");
                setIsLoading(false);
           },
-     })
-
-     // Handle form submission
-     interface FormValues {
-          first_name: string;
-          last_name: string;
-          email: string;
-          phone: string;
-          message: string;
-     }
-
-     interface FormikHelpers {
-          resetForm: () => void;
-     }
-
-     const onSubmit = (values: FormValues, { resetForm }: FormikHelpers) => {
-          // mutate(values);
+     });
+     // @ts-ignore
+     const onSubmit = (values, { resetForm }) => {
           console.log(values);
           setIsLoading(true);
           resetForm();
@@ -61,125 +52,104 @@ const ContactForm = () => {
      return (
           <div className="dark:bg-black dark:text-white">
                <div className="container mx-auto p-6">
-                    <Formik
-                         initialValues={initialValues}
-                         validationSchema={validationSchema}
-                         onSubmit={onSubmit}
-                    >
+                    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                          {() => (
                               <Form>
-                                   {/* Name Field */}
+                                   {/* Name Fields */}
                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                              <label htmlFor="first_name" className="block text-gray-700 font-bold mb-2">
-                                                  الاسم الاول
+                                                  {t("contactForm.firstName")}
                                              </label>
                                              <Field
                                                   type="text"
                                                   id="first_name"
                                                   name="first_name"
-                                                  placeholder="الاسم الاول"
-                                                  className="w-full px-3 h-12 border rounded-2xl focus:outline-yellow-500"
+                                                  placeholder={t("contactForm.placeholders.firstName")}
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
-                                             <ErrorMessage
-                                                  name="first_name"
-                                                  component="div"
-                                                  className="text-red-500 text-sm mt-1"
-                                             />
+                                             <ErrorMessage name="first_name" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
 
                                         <div>
-                                             <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-                                                  الاسم الاخير
+                                             <label htmlFor="last_name" className="block text-gray-700 font-bold mb-2">
+                                                  {t("contactForm.lastName")}
                                              </label>
                                              <Field
                                                   type="text"
                                                   id="last_name"
                                                   name="last_name"
-                                                  placeholder="الاسم الاخير"
-                                                  className="w-full px-3 h-12 border rounded-2xl focus:outline-yellow-500"
+                                                  placeholder={t("contactForm.placeholders.lastName")}
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
-                                             <ErrorMessage
-                                                  name="last_name"
-                                                  component="div"
-                                                  className="text-red-500 text-sm mt-1"
-                                             />
+                                             <ErrorMessage name="last_name" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
 
                                         {/* Email Field */}
                                         <div className="mb-4">
                                              <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
-                                                  البريد الالكتروني
+                                                  {t("contactForm.email")}
                                              </label>
                                              <Field
                                                   type="email"
                                                   id="email"
                                                   name="email"
-                                                  placeholder="ادخل البريد الالكتروني"
-                                                  className="w-full px-3 h-12 border rounded-2xl focus:outline-yellow-500"
+                                                  placeholder={t("contactForm.placeholders.email")}
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
-                                             <ErrorMessage
-                                                  name="email"
-                                                  component="div"
-                                                  className="text-red-500 text-sm mt-1"
-                                             />
+                                             <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
 
-                                        {/* Subject Field */}
+                                        {/* Phone Field */}
                                         <div className="">
-                                             <label htmlFor="subject" className="block text-gray-700 font-bold mb-2">
-                                                  رقم الجوال
+                                             <label htmlFor="phone" className="block text-gray-700 font-bold mb-2">
+                                                  {t("contactForm.phone")}
                                              </label>
                                              <Field
                                                   type="text"
                                                   id="phone"
                                                   name="phone"
-                                                  placeholder="رقم الجوال"
-                                                  className="w-full px-3 h-12 border rounded-2xl focus:outline-yellow-500"
+                                                  placeholder={t("contactForm.placeholders.phone")}
+                                                  className="w-full px-3 h-12 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
-                                             <ErrorMessage
-                                                  name="phone"
-                                                  component="div"
-                                                  className="text-red-500 text-sm mt-1"
-                                             />
+                                             <ErrorMessage name="phone" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
 
                                         {/* Message Field */}
                                         <div className="mb-4 md:col-span-2">
                                              <label htmlFor="message" className="block text-gray-700 font-bold mb-2">
-                                                  الرسالة
+                                                  {t("contactForm.message")}
                                              </label>
                                              <Field
                                                   as="textarea"
                                                   id="message"
                                                   name="message"
-                                                  placeholder="الرسالة"
+                                                  placeholder={t("contactForm.placeholders.message")}
                                                   rows="8"
-                                                  className="w-full px-3 py-2 border rounded-2xl focus:outline-yellow-500"
+                                                  className="w-full px-3 py-2 border border-gray-600 rounded-2xl dark:bg-black dark:text-white focus:ring-yellow-500"
                                              />
-                                             <ErrorMessage
-                                                  name="message"
-                                                  component="div"
-                                                  className="text-red-500 text-sm mt-1"
-                                             />
+                                             <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
                                         </div>
                                    </div>
 
                                    {/* Submit Button */}
-                                   <Button
-                                        type="submit"
-                                        className="px-20"
-                                        radius="xl"
-                                        size="lg"
-                                        loading={isLoading}
-                                        color="yellow"
-                                   >
-                                        ارسال
-                                   </Button>
+                                   <button className="bg-yellow-500 text-black hover:bg-yellow-600 px-10 py-3 text-xl font-bold rounded-lg group flex items-center gap-4 shadow-lg transition-all duration-300">
+                                        {dir === "rtl" ? (
+                                             <>
+                                                  ارسال
+                                                  <GoArrowUpRight className="inline-block ml-2 transition-transform duration-300 group-hover:-rotate-45" />
+                                             </>
+                                        ) : (
+                                             <>
+                                                  <GoArrowUpRight className="inline-block mr-2 transition-transform duration-300 group-hover:-rotate-45" />
+                                                  send
+                                             </>
+                                        )}
+                                   </button>
                               </Form>
                          )}
                     </Formik>
-               </div >
+               </div>
           </div>
      );
 };

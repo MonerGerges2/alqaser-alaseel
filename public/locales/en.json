@@ -4,16 +4,32 @@
     "about": "About Us",
     "services": "Services",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact Us",
+    "construction": "Construction & Maintenance",
+    "insulation": "Insulation Services",
+    "interiorExterior": "Interior & Exterior Finishing",
+    "electricalPlumbing": "Electrical & Plumbing",
+    "servicesList": {
+      "buildingRenovation": "Building Renovation & Waterproofing",
+      "acCooling": "Air Conditioning & Cooling Services",
+      "waterproofing": "Waterproofing Services",
+      "tiling": "Tiling Services",
+      "painting": "Painting & Coatings",
+      "gypsumBoard": "Gypsum Board & Cement Board",
+      "electricalPlumbing": "Electrical & Plumbing Services",
+      "interlockStone": "Interlock & Stone Work",
+      "interiorExteriorDecor": "Interior & Exterior Decorations",
+      "facadeRenovation": "Facade Renovation"
+    }
   },
   "heroSlider": {
     "title": "Promising Real Estate Investment",
-    "description": "Al-Jadah Al-Oula for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
+    "description": "Al-Qaser alaseel for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
     "button": "Our Projects"
   },
   "about": {
     "title": "About Us",
-    "description": "Al-Jadah Al-Oula for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
+    "description": "Al-Qaser alaseel for Real Estate Development is one of the distinguished companies in real estate investment and development, headquartered in Riyadh. The company has achieved rapid growth to become one of the prominent and leading companies in creating sustainable investment opportunities through innovative real estate development.",
     "button": "Read More"
   },
   "footer": {
@@ -25,7 +41,178 @@
     "mediaCenter": "Media Center",
     "TermsConditions": "Investment Relations",
     "contactInfo": "Contact Information",
-    "address": "Riyadh: Prince Turki Bin Abdulaziz Al Awwal Road - Hittin District, Building 6957 - Unit No. 3 - Postal Code: 2447-13512, Saudi Arabia",
-    "rightsReserved": "All rights reserved. Al-Jadah Al-Oula Real Estate Development Company"
+    "address": "Arab Emirates United",
+    "rightsReserved": "All rights reserved. Al-Qaser alaseel Real Estate Development Company"
+  },
+  "services": "Our Services",
+  "services_description": "We offer integrated construction solutions tailored to your needs, ensuring quality and innovation in every project.",
+  "services_list": {
+    "renovation": {
+      "title": "Building Renovation",
+      "description": "Transforming old spaces into modern, functional, and attractive environments."
+    },
+    "finishes": {
+      "title": "Interior Finishes",
+      "description": "High-quality finishes to enhance beauty and comfort."
+    },
+    "ceilings": {
+      "title": "Ceiling Solutions",
+      "description": "Providing durable and innovative ceiling systems for protection and quality."
+    },
+    "foundation": {
+      "title": "Foundation Repair",
+      "description": "Improving the strength and stability of structures with professional solutions."
+    }
+  },
+  "learn_more": "Learn More",
+  "vision": "Our Vision",
+  "vision_description": "We aspire to be pioneers in the field of construction and real estate development by providing innovative solutions that combine quality, modern design, and environmental sustainability. Our vision revolves around building a more modern future using advanced technology and eco-friendly materials to ensure sustainability and efficiency in all our projects.",
+  "vision_points": {
+    "tech_based_solutions": "Providing construction solutions based on modern technology.",
+    "eco_friendly_materials": "Using eco-friendly materials to promote sustainability.",
+    "quality_assurance": "Ensuring quality and durability in all our projects.",
+    "modern_designs": "We employ the latest technologies and engineering methods to achieve modern and sustainable designs.",
+    "international_standards": "We use eco-friendly materials and adhere to international standards to preserve natural resources.",
+    "high_quality_execution": "We ensure that our projects are executed to the highest quality standards for durability and efficiency."
+  },
+  "latest_articles": "Latest Articles",
+  "articles_description": "Stay updated with the latest news and developments in the world of construction and real estate.",
+  "articles": {
+    "article1": {
+      "title": "Latest Construction Trends in 2024",
+      "description": "Learn about the latest innovations in the construction and building sector.",
+      "date": "February 25, 2025"
+    },
+    "article2": {
+      "title": "The Importance of Sustainability in Architectural Design",
+      "description": "How do modern construction techniques contribute to sustainability?",
+      "date": "February 18, 2025"
+    },
+    "article3": {
+      "title": "Smart Technologies in Modern Construction",
+      "description": "Discover how technology is transforming the construction industry.",
+      "date": "February 10, 2025"
+    }
+  },
+  "have_a_question": "Do you have a question?",
+  "question_description": "We are here to answer your questions and provide the support you need. Don't hesitate to contact us!",
+  "contact_us_now": "Contact Us Now",
+  "our_numbers": "Our Numbers Speak",
+  "numbers_description": "Our success is measured by customer satisfaction, project quality, and our positive impact in the construction industry.",
+  "stats": {
+    "completed_projects": "Completed Projects",
+    "happy_clients": "Happy Clients",
+    "ongoing_projects": "Ongoing Projects",
+    "awards_certifications": "Awards & Certifications"
+  },
+  "faq_title": "About Us",
+  "faq_subtitle": "Frequently Asked Questions",
+  "faq_description": "Learn more about Al Qasr Al Aseel and our services.",
+  "faq": [
+    {
+      "question": "What is general contracting?",
+      "answer": "General contracting is the process of managing and executing construction projects from planning to delivery. It includes coordinating subcontractors' work, overseeing execution quality, and ensuring compliance with standards and specifications."
+    },
+    {
+      "question": "What services does a general contractor provide?",
+      "answer": "A general contractor provides comprehensive services, including project management, subcontractor coordination, execution supervision, and ensuring quality and safety on the construction site."
+    },
+    {
+      "question": "How is project cost estimated in general contracting?",
+      "answer": "Project cost estimation involves analyzing various factors such as material costs, labor, equipment, and design complexity. A detailed feasibility study is typically conducted to accurately determine the budget before execution."
+    },
+    {
+      "question": "What are the necessary steps to start a contracting project?",
+      "answer": "The necessary steps include conducting a feasibility study, obtaining licenses and permits, preparing a detailed work plan, and selecting a specialized team to ensure efficient and effective project execution."
+    },
+    {
+      "question": "How is work quality ensured in projects?",
+      "answer": "Work quality is ensured by adhering to international construction standards, conducting regular inspections, using high-quality materials, and employing specialized experts to oversee various execution phases."
+    }
+  ],
+  "breadcrumb": {
+    "home": "Home",
+    "about": "About Us"
+  },
+  "header": {
+    "title": "About Us",
+    "description": "Welcome to Al Qasr Al Aseel Contracting Company – Your trusted partner in construction and maintenance."
+  },
+  "aboutCompany": {
+    "title": "About Our Company",
+    "description1": "Shakrah Contracting Company has been a pioneer in the construction industry since its inception. Our journey is characterized by innovation, commitment, and excellence.",
+    "description2": "Founded in [Year], we started as a small contractor and evolved into a reputable company known for delivering high-quality projects on time and within budget.",
+    "description3": "Our rich history and extensive experience have made us industry leaders, making us a trusted partner for all your construction and maintenance needs."
+  },
+  "coreValues": {
+    "title": "Our Core Values",
+    "innovation": {
+      "title": "Innovation",
+      "description": "We continuously integrate the latest technologies and creative solutions into our projects."
+    },
+    "quality": {
+      "title": "Quality",
+      "description": "Every detail matters; we deliver projects that meet our high standards of excellence."
+    },
+    "integrity": {
+      "title": "Integrity",
+      "description": "We conduct our business with transparency, honesty, and unwavering commitment."
+    }
+  },
+  "blog": {
+    "breadcrumb": {
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "title": "Blog",
+    "description": "Discover the latest articles and tips in the world of construction and maintenance with our diverse articles that bring you the latest and most useful insights."
+  },
+  "searchPlaceholder": "Search for an article...",
+  "contact": {
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    },
+    "title": "Contact Us",
+    "description": "If you have any inquiries or need support, feel free to reach out to us. We are here to assist you anytime."
+  },
+  "contactInfo": {
+    "phone": {
+      "title": "Phone",
+      "number": "+123 456 7890"
+    },
+    "email": {
+      "title": "Email",
+      "address": "contact@example.com"
+    },
+    "location": {
+      "title": "Location",
+      "address": "United Arab Emirates"
+    }
+  },
+  "contactForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send",
+    "placeholders": {
+      "firstName": "Enter your first name",
+      "lastName": "Enter your last name",
+      "email": "Enter your email",
+      "phone": "Enter your phone number",
+      "message": "Write your message here..."
+    },
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "phoneRequired": "Phone number is required",
+      "messageRequired": "Message is required"
+    },
+    "successMessage": "Message sent successfully",
+    "errorMessage": "An error occurred while sending the message"
   }
 }
