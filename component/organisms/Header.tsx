@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from "/public/assets/logo-bg.png";
 import { Burger, Transition, Paper, Menu } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import { FaGlobe, FaMoon, FaSun } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
@@ -10,7 +9,6 @@ import Image from "next/image";
 import NavLink from "../mucles/NavLink";
 
 const Header = () => {
-  const isMobile = useMediaQuery("(max-width: 1023px)");
   const [opened, setOpened] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -24,10 +22,9 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const dir = i18n.language === "ar" ? "rtl" : "ltr";
     document.body.setAttribute("dir", dir);
     document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+  }, [i18n.language, dir]);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "ar" : "en";
@@ -37,7 +34,6 @@ const Header = () => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-
     if (storedTheme) {
       setDarkMode(storedTheme === "dark");
     } else {
@@ -89,10 +85,16 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all ${scrolled ? "bg-white dark:bg-black shadow-md" : "bg-transparent"}`} dir={dir}>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all ${scrolled ? "bg-white dark:bg-black shadow-md" : "bg-transparent"
+        }`}
+      dir={dir}
+    >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Mobile Menu Toggle */}
-        {isMobile && <Burger opened={opened} onClick={() => setOpened((o) => !o)} size="md" color="black" />}
+        <div className="block lg:hidden">
+          <Burger opened={opened} onClick={() => setOpened(!opened)} size="md" color="black" />
+        </div>
 
         {/* Logo */}
         <Link href="/" className="lg:w-44 w-10 lg:h-16 h-10">
@@ -100,63 +102,72 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        {!isMobile && (
-          <nav className="bg-white/50 dark:bg-black/50 backdrop-blur-2xl rounded-2xl px-6 py-2">
-            <div className="flex items-center gap-4">
-              <NavLink text={t("nav.home")} link="/" />
-              <NavLink text={t("nav.about")} link="/about" />
+        <nav className="hidden lg:block bg-white/50 dark:bg-black/50 backdrop-blur-2xl rounded-2xl px-6 py-2">
+          <div className="flex items-center gap-4">
+            <NavLink text={t("nav.home")} link="/" />
+            <NavLink text={t("nav.about")} link="/about" />
 
-              {/* Services Dropdown */}
-              <Menu trigger="hover" openDelay={100} closeDelay={200} position="bottom-start">
-                <Menu.Target>
-                  <button className="flex items-center px-5 py-2 gap-1 group  text-black dark:text-white">
-                    <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "rtl" ? "block" : "hidden"}`} />
-                    {t("nav.services")}
-                    <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "ltr" ? "block" : "hidden"}`} />
-                  </button>
-                </Menu.Target>
-                <Menu.Dropdown className="bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-lg">
-                  {servicesDropdown.map((category, index) => (
-                    <Menu key={index} trigger="hover" openDelay={100} closeDelay={200} position="right-start" withArrow>
-                      <Menu.Target>
-                        <Menu.Item className="hover:bg-gray-100 dark:hover:bg-gray-800 text-black dark:text-white">
-                          {category.category}
+            {/* Services Dropdown */}
+            <Menu trigger="hover" openDelay={100} closeDelay={200} position="bottom-start">
+              <Menu.Target>
+                <button className="flex items-center px-5 py-2 gap-1 group text-black dark:text-white duration-300">
+                  <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "rtl" ? "block" : "hidden"}`} />
+                  {t("nav.services")}
+                  <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "ltr" ? "block" : "hidden"}`} />
+                </button>
+              </Menu.Target>
+              <Menu.Dropdown className="bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-lg">
+                {servicesDropdown.map((category, index) => (
+                  <Menu
+                    key={index}
+                    trigger="hover"
+                    openDelay={100}
+                    closeDelay={200}
+                    position="right-start"
+                    withArrow
+                  >
+                    <Menu.Target>
+                      <Menu.Item className="hover:bg-gray-100 dark:hover:bg-gray-800 text-black dark:text-white">
+                        {category.category}
+                      </Menu.Item>
+                    </Menu.Target>
+                    <Menu.Dropdown className="bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-lg">
+                      {category.services.map((service, subIndex) => (
+                        <Menu.Item
+                          key={subIndex}
+                          component={Link}
+                          href={service.link}
+                          className="hover:bg-gray-100 dark:hover:bg-gray-800 text-black dark:text-white"
+                        >
+                          {service.text}
                         </Menu.Item>
-                      </Menu.Target>
-                      <Menu.Dropdown className="bg-white dark:bg-gray-900 border dark:border-gray-700 shadow-lg">
-                        {category.services.map((service, subIndex) => (
-                          <Menu.Item
-                            key={subIndex}
-                            component={Link}
-                            href={service.link}
-                            className="hover:bg-gray-100 dark:hover:bg-gray-800 text-black dark:text-white"
-                          >
-                            {service.text}
-                          </Menu.Item>
-                        ))}
-                      </Menu.Dropdown>
-                    </Menu>
-                  ))}
-                </Menu.Dropdown>
-              </Menu>
+                      ))}
+                    </Menu.Dropdown>
+                  </Menu>
+                ))}
+              </Menu.Dropdown>
+            </Menu>
 
-              <NavLink text={t("nav.blog")} link="/blog" />
-              <NavLink text={t("nav.contact")} link="/contact" />
+            <NavLink text={t("nav.blog")} link="/blog" />
+            <NavLink text={t("nav.contact")} link="/contact" />
 
-              <button onClick={toggleLanguage} className="flex items-center gap-1 text-black dark:text-white">
-                <p>{i18n.language === "ar" ? "EN" : "AR"}</p>
-                <FaGlobe className="text-xl" />
-              </button>
-              <button onClick={toggleDarkMode} className="p-2 rounded-full transition">
-                {darkMode ? <FaSun className="text-yellow-500" size={20} /> : <FaMoon className="text-gray-900 dark:text-white" size={20} />}
-              </button>
-            </div>
-          </nav>
-        )}
+            <button onClick={toggleLanguage} className="flex items-center gap-1 text-black dark:text-white">
+              <p>{i18n.language === "ar" ? "EN" : "AR"}</p>
+              <FaGlobe className="text-xl" />
+            </button>
+            <button onClick={toggleDarkMode} className="p-2 rounded-full transition">
+              {darkMode ? (
+                <FaSun className="text-yellow-500" size={20} />
+              ) : (
+                <FaMoon className="text-gray-900 dark:text-white" size={20} />
+              )}
+            </button>
+          </div>
+        </nav>
       </div>
 
       {/* Mobile Navigation */}
-      {isMobile && (
+      <div className="lg:hidden">
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper
@@ -174,8 +185,9 @@ const Header = () => {
                 <Menu trigger="hover" openDelay={100} closeDelay={200} position="bottom-start">
                   <Menu.Target>
                     <button className="flex items-center w-full text-left px-5 py-2">
+                      <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "rtl" ? "block" : "hidden"}`} />
                       {t("nav.services")}
-                      <MdArrowOutward className="ml-1 transition-transform group-hover:rotate-[135deg]" />
+                      <MdArrowOutward className={`mx-1 transition-transform group-hover:rotate-[135deg] ${dir === "ltr" ? "block" : "hidden"}`} />
                     </button>
                   </Menu.Target>
                   <Menu.Dropdown>
@@ -205,14 +217,18 @@ const Header = () => {
                     <FaGlobe className="text-2xl" />
                   </button>
                   <button onClick={toggleDarkMode} className="p-2 rounded-full transition">
-                    {darkMode ? <FaSun className="text-yellow-500" size={20} /> : <FaMoon className="text-gray-900" size={20} />}
+                    {darkMode ? (
+                      <FaSun className="text-yellow-500" size={20} />
+                    ) : (
+                      <FaMoon className="text-gray-900" size={20} />
+                    )}
                   </button>
                 </div>
               </nav>
             </Paper>
           )}
         </Transition>
-      )}
+      </div>
     </header>
   );
 };

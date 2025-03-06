@@ -47,7 +47,7 @@ const SectionTwo = () => {
                                    </SwiperSlide>
                               ))}
                          </Swiper>
-                         <div className="flex items-center justify-center mt-5">
+                         <div className="flex items-center justify-center mt-5 mb-5 md:mb-0">
                               <div className="swiper-button-next swiper-btn-tow bg-gray-800 text-white p-2 rounded-full shadow-lg ml-2"></div>
                               <div className="swiper-button-prev swiper-btn-tow bg-gray-800 text-white p-2 rounded-full shadow-lg"></div>
                          </div>

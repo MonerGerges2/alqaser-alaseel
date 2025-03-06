@@ -38,9 +38,9 @@ const VisionSection = () => {
                          </p>
                          <ul className=" px-4">
                               {visionPoints.map((point, index) => (
-                                   <li key={index} className="flex items-center text-lg gap-4 text-gray-700 dark:text-gray-500">
+                                   <li key={index} className="flex text-lg gap-4 text-gray-700 dark:text-gray-500">
                                         <FaCheckCircle className="text-yellow-500 md:text-xl text-sm mr-3" />
-                                        <p className="max-w-[90%] min-h-[3rem]">
+                                        <p className="max-w-[80%] md:max-w-[90%] min-h-[3rem] text-sm md:text-base">
                                              {point}
                                         </p>
                                    </li>
